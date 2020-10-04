@@ -71,7 +71,7 @@ set CLASSPATH=%APP_HOME%\lib\ISTE422DRAMA-1.0-SNAPSHOT.jar;%APP_HOME%\lib\log4j-
 
 
 @rem Execute ISTE422DRAMA
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %IST_E422_DRAMA_OPTS%  -classpath "%CLASSPATH%" Runner %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %IST_E422_DRAMA_OPTS%  -classpath "%CLASSPATH%" RunEdgeConvert %*
 
 :end
 @rem End local scope for the variables with windows NT shell

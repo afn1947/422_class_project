@@ -180,6 +180,6 @@ save () {
 APP_ARGS=`save "$@"`
 
 # Collect all arguments for the java command, following the shell quoting and substitution rules
-eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $IST_E422_DRAMA_OPTS -classpath "\"$CLASSPATH\"" Runner "$APP_ARGS"
+eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $IST_E422_DRAMA_OPTS -classpath "\"$CLASSPATH\"" RunEdgeConvert "$APP_ARGS"
 
 exec "$JAVACMD" "$@"
