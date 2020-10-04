@@ -1,8 +1,13 @@
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class EdgeConvertFileParser {
+   //Get a Logger object to log messages.
+   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+
    //private String filename = "test.edg";
    private File parseFile;
    private FileReader fr;
@@ -283,15 +288,18 @@ public class EdgeConvertFileParser {
    
    public void openFile(File inputFile) {
       try {
+         logger.info("Attempting to open file...");
          fr = new FileReader(inputFile);
          br = new BufferedReader(fr);
          //test for what kind of file we have
          currentLine = br.readLine().trim();
          numLine++;
          if (currentLine.startsWith(EDGE_ID)) { //the file chosen is an Edge Diagrammer file
+            logger.info("Edge Diagrammer file loaded.");
             this.parseEdgeFile(); //parse the file
             br.close();
             this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type
+            logger.info("Attempting to resolve connectors...");
             this.resolveConnectors(); //Identify nature of Connector endpoints
          } else {
             if (currentLine.startsWith(SAVE_ID)) { //the file chosen is a Save file created by this application
@@ -304,10 +312,12 @@ public class EdgeConvertFileParser {
          }
       } // try
       catch (FileNotFoundException fnfe) {
+         logger.error("Cannot find \"" + inputFile.getName() + "\".");
          System.out.println("Cannot find \"" + inputFile.getName() + "\".");
          System.exit(0);
       } // catch FileNotFoundException
       catch (IOException ioe) {
+         logger.error("There was an IO Exception.");
          System.out.println(ioe);
          System.exit(0);
       } // catch IOException
