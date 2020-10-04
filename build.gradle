@@ -7,7 +7,7 @@ group 'edu.rit.iste-422'
 version '1.0-SNAPSHOT'
 
 ext {
-    javaMainClass = 'Runner'
+    javaMainClass = 'RunEdgeConvert'
 }
 
 test {
