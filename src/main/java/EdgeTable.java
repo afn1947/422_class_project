@@ -1,6 +1,12 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.*;
 
 public class EdgeTable {
+   //Get a Logger object to log messages.
+   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+
    private int numFigure;
    private String name;
    private ArrayList alRelatedTables, alNativeFields;

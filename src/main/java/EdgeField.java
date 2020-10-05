@@ -1,6 +1,12 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.StringTokenizer;
 
 public class EdgeField {
+   //Get a Logger object to log messages.
+   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+
    private int numFigure, tableID, tableBound, fieldBound, dataType, varcharValue;
    private String name, defaultValue;
    private boolean disallowNull, isPrimaryKey;

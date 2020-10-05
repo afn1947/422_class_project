@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -6,6 +9,9 @@ import java.io.*;
 import java.util.*;
 
 public abstract class EdgeConvertCreateDDL {
+   //Get a Logger object to log messages.
+   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+
    static String[] products = {"MySQL"};
    protected EdgeTable[] tables; //master copy of EdgeTable objects
    protected EdgeField[] fields; //master copy of EdgeField objects

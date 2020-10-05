@@ -1,3 +1,6 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -10,7 +13,10 @@ import java.util.jar.JarFile;
 import java.lang.reflect.*;
 
 public class EdgeConvertGUI {
-   
+   //Get a Logger object to log messages.
+   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+
+
    public static final int HORIZ_SIZE = 635;
    public static final int VERT_SIZE = 400;
    public static final int HORIZ_LOC = 100;
