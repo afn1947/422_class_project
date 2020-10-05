@@ -27,6 +27,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
    }
    
    public void createDDL() {
+      logger.info("Generating DDL...");
       EdgeConvertGUI.setReadSuccess(true);
       databaseName = generateDatabaseName();
       sb.append("CREATE DATABASE " + databaseName + ";\r\n");
@@ -103,6 +104,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
             }
          }
       }
+      logger.info("DDL generation finished.");
    }
 
    protected int convertStrBooleanToInt(String input) { //MySQL uses '1' and '0' for boolean types
@@ -115,8 +117,8 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
    
    public String generateDatabaseName() { //prompts user for database name
       String dbNameDefault = "MySQLDB";
+      logger.info("Getting user input for database name.");
       //String databaseName = "";
-
       do {
          databaseName = (String)JOptionPane.showInputDialog(
                        null,
@@ -128,12 +130,14 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
                        dbNameDefault);
          if (databaseName == null) {
             EdgeConvertGUI.setReadSuccess(false);
+            logger.debug("No database name entered.");
             return "";
          }
          if (databaseName.equals("")) {
             JOptionPane.showMessageDialog(null, "You must select a name for your database.");
          }
       } while (databaseName.equals(""));
+      logger.info("Database named: " + databaseName);
       return databaseName;
    }
    

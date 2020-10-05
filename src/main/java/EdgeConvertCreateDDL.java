@@ -47,24 +47,29 @@ public abstract class EdgeConvertCreateDDL {
          if (numBound > maxBound) {
             maxBound = numBound;
          }
+         logger.info("Initialized with tables: " + tables.toString() + ", and fields: " + fields.toString());
       }
    }
    
    protected EdgeTable getTable(int numFigure) {
       for (int tIndex = 0; tIndex < tables.length; tIndex++) {
          if (numFigure == tables[tIndex].getNumFigure()) {
+            logger.info("Returning table " + tables[tIndex].toString());
             return tables[tIndex];
          }
       }
+      logger.debug("No table found.");
       return null;
    }
    
    protected EdgeField getField(int numFigure) {
       for (int fIndex = 0; fIndex < fields.length; fIndex++) {
          if (numFigure == fields[fIndex].getNumFigure()) {
+            logger.info("Returning field " + fields[fIndex].toString());
             return fields[fIndex];
          }
       }
+      logger.debug("No field found.");
       return null;
    }
 

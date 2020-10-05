@@ -14,6 +14,7 @@ public class EdgeField {
    public static final int VARCHAR_DEFAULT_LENGTH = 1;
    
    public EdgeField(String inputString) {
+      logger.info("Creating new edge field with input: " + inputString);
       StringTokenizer st = new StringTokenizer(inputString, EdgeConvertFileParser.DELIM);
       numFigure = Integer.parseInt(st.nextToken());
       name = st.nextToken();
