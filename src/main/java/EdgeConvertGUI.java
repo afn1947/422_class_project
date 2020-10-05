@@ -90,7 +90,6 @@ public class EdgeConvertGUI {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //use the OS native LAF, as opposed to default Java LAF
         } catch (Exception e) {
-            System.out.println("Error setting native LAF: " + e);
             logger.error("Error setting native LAF: " + e);
         }
         createDTScreen();
@@ -988,7 +987,7 @@ public class EdgeConvertGUI {
         String classLocation = EdgeConvertGUI.class.getResource("EdgeConvertGUI.class").toString();
         if (classLocation.startsWith("jar:")) {
             String jarfilename = classLocation.replaceFirst("^.*:", "").replaceFirst("!.*$", "");
-            System.out.println("Jarfile: " + jarfilename);
+            logger.info("Found Jarfile: " + jarfilename);
             try (JarFile jarfile = new JarFile(jarfilename)) {
                 ArrayList<File> filenames = new ArrayList<>();
                 for (JarEntry e : Collections.list(jarfile.entries())) {
@@ -1005,7 +1004,7 @@ public class EdgeConvertGUI {
         alSubclasses.clear();
         try {
             for (int i = 0; i < resultFiles.length; i++) {
-                System.out.println(resultFiles[i].getName());
+                logger.info("Found file: " + resultFiles[i].getName());
                 if (!resultFiles[i].getName().endsWith(".class")) {
                     continue; //ignore all files that are not .class files
                 }
@@ -1085,7 +1084,7 @@ public class EdgeConvertGUI {
     }
 
     private void writeSQL(String output) {
-        logger.info("Writing SQL: " + output);
+        logger.info("Writing SQL output to file");
         jfcEdge.resetChoosableFileFilters();
         String str;
         if (parseFile != null) {
