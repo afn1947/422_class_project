@@ -4,70 +4,59 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class EdgeTableTest {
+	private EdgeTable testObjTable;
 
 	// Runs each time before the tests - should be 12 tests
 	@Before
 	public void setUp() throws Exception {
-		testObj = new EdgeTable("1|2|3|testStyle1|testStyle2");
+		testObjTable = new EdgeTable("2|testName");
 	}
 
 	@Test
-	public int TestgetNumFigure() {
-      
+	public void testgetNumFigure() {
+      assertEquals("NumFigure was initialized to 2",2,testObjTable.getNumFigure());
   }
    
 	@Test
-  public String TestGetName() {
-
+  public void testGetName() {
+		assertEquals("Name was initialized to","testName",name,testObjTable.getName());
   }
    
 	@Test
-  public void TestAddRelatedTable(int relatedTable) {
-
-  }
+  public void testAddRelatedTable() {
+	}
    
 	@Test
-  public int[] TestGetRelatedTablesArray() {
-
-  }
+  public void TestGetRelatedTablesArray() {
+		assertEquals("Related Tables should be 0",0,testObjTable.getRelatedTablesArray());
+	}
    
 	@Test
-  public int[] TestGetRelatedFieldsArray() {
-
-  }
+  public void testGetRelatedFieldsArray() {
+		assertEquals("Related Fields should be 0",0,testObjTable.getRelatedFieldsArray());
+	}
    
 	@Test
-  public void TestSetRelatedField(int index, int relatedValue) {
-      
-  }
+  public void testSetRelatedField() {}
    
 	@Test
-  public int[] TestGetNativeFieldsArray() {
-
-  }
-
-	@Test
-  public void TestAddNativeField(int value) {
-
-  }
+  public void testGetNativeFieldsArray() {
+			assertEquals("Native Fields should be 0",0,testObjTable.getRelatedNativeArray());
+	}
 
 	@Test
-  public void TestMoveFieldUp(int index) { 
-     
-   }
+  public void testAddNativeField() {}
+
+	@Test
+  public void testMoveFieldUp() {}
 
   @Test 
-  public void TestMoveFieldDown(int index) { 
-     
-  }
+  public void testMoveFieldDown() {}
 
   @Test
-	public void TestMakeArrays() { 
-
-  }
+	public void testMakeArrays() {}
       
 	@Test
-  public String TestToString() {
-	}
+  public void testToString() {}
 
 }

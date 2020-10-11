@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class EdgeConvertFileParserTest {
+	EdgeConvertFileParser testObj;
 
 	@Before
 	public void setUp() throws Exception {
@@ -11,17 +12,29 @@ public class EdgeConvertFileParserTest {
 	}
 
 	@Test
-	public void parseEdgeFile(){}
+	public void testParseEdgeFile(){}
 
 	@Test
-	public void resolveConnectors(){}
+	public void testResolveConnectors(){}
 
 	@Test
-	public void parseSaveFile(){}
+	public void testParseSaveFile(){}
 
 	@Test
-	public void makeArrays(){}
+	public void testMakeArrays(){}
 
-	
+	@Test
+	public void testIsTableDup(){}
+
+	@Test
+	public void testGetEdgeTables(){
+
+	}
+
+	@Test
+	public void testGetEdgeFields(){}
+
+	@Test
+	public void testOpenFile(){}
 
 }
