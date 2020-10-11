@@ -15,6 +15,10 @@ public class EdgeFieldTest {
 	private EdgeField testField3;
 	private EdgeField testField4;
 
+	/**
+	* Can you intialize testName to an empty string?
+	* Can you initialize numFigure to zero or a negative number?
+	*/
 	@Before
 	public void setUp() throws Exception {
 		testField = new EdgeField("2|testName");
@@ -23,51 +27,78 @@ public class EdgeFieldTest {
 		testField4 = new EdgeField("2| ");
 	}
 
+	/**
+	* Is the numFigure value returned correct? 
+	*/
 	@Test
 	public void testGetNumFigure(){
-		assertEquals("Test 1: numFigure was intialized to 2", 2,testField.getNumFigure());
-		assertEquals("Test 2: numFigure was intialized to 0", 0,testField2.getNumFigure());
-		assertEquals("Test 3: numFigure was intialized to -1", -1,testField3.getNumFigure());
-		assertEquals("Test 4: numFigure was intialized to 2", 2,testField4.getNumFigure());
+		assertEquals("Test 1: numFigure should be 2", 2,testField.getNumFigure());
+		assertEquals("Test 2: numFigure should be 0", 0,testField2.getNumFigure());
+		assertEquals("Test 3: numFigure should be -1", -1,testField3.getNumFigure());
+		assertEquals("Test 4: numFigure should be 2", 2,testField4.getNumFigure());
 	}
 
+	/**
+	* Is the correct name returned?
+	*/
 	@Test
 	public void testGetName(){
-		assertEquals("Test 1: name was intialized to testName", "testName" ,testField.getName());
-		assertEquals("Test 2: name was intialized to testName", "testName" ,testField2.getName());
-		assertEquals("Test 3: name was intialized to testName", "testName" ,testField3.getName());
-		assertEquals("Test 4: name was intialized to an empty string", "" ,testField4.getName());
+		assertEquals("Test 1: name should be testName", "testName" ,testField.getName());
+		assertEquals("Test 2: name should be testName", "testName" ,testField2.getName());
+		assertEquals("Test 3: name should be testName", "testName" ,testField3.getName());
+		assertEquals("Test 4: name should be an empty string", "" ,testField4.getName());
 	}
 
+	/**
+	* Is the correct tableID returned?
+	*/
 	@Test
 	public void testGetTableID() {
-		assertEquals("Test 1: tableID should be 0", 0, testField.getTableID());
-		assertEquals("Test 1: tableID should be 0", 0, testField2.getTableID());
-		assertEquals("Test 1: tableID should be 0", 0, testField3.getTableID());
-		assertEquals("Test 1: tableID should be 0", 0, testField4.getTableID());
-	
+		assertEquals("Test: tableID should be 0", 0, testField.getTableID());
 	}
 
+	/**
+	* Can you set the table ID? 
+	* Can you set the table ID to zero?
+	* Can you set the table ID to a negative number?
+	*/
 	@Test
-	public void testSetTableID() {}
+	public void testSetTableID() {
+		testField.setTableID(1);
+		assertEquals("tableID should be set to 1.",1,testField.getTableID());
+		testField.setTableID(-1);
+		assertEquals("tableID should not allow a negative number. Attempted to set ID to -1.",-1,testField.getTableID());
+		testField.setTableID(0);
+		assertEquals("tableID should not allow a zero value. Attempted to set ID to 0.",0,testField.getTableID());
+	}
 
+	/**
+	* Is the correct tableBound returned?
+	*/
 	@Test
 	public void testGetTableBound() {
-		assertEquals("Test 1: tableBound should be 0", 0, testField.getTableBound());
-		assertEquals("Test 2: tableBound should be 0", 0, testField2.getTableBound());
-		assertEquals("Test 3: tableBound should be 0", 0, testField3.getTableBound());
-		assertEquals("Test 4: tableBound should be 0", 0, testField4.getTableBound());
+		assertEquals("Test: tableBound should be 0", 0, testField.getTableBound());
 	}
 
+
+	/**
+	* Can you set the table boundary? 
+	* Can you set the table boundary to zero?
+	* Can you set the table boundary to a negative number?
+	*/
 	@Test
-	public void testSetTableBound() {}
+	public void testSetTableBound() {
+		testField.setTableBound(1);
+		assertEquals("tableBound should be set to 1.",1,testField.getTableBound());
+		testField.setTableBound(-1);
+		assertEquals("tableBound should not allow a negative number. Attempted to set tableBound to -1.",-1,testField.getTableBound());
+		testField.setTableBound(0);
+		assertEquals("tableBound should not allow a zero value. Attempted to set tableBound to 0.",0,testField.getTableBound());
+	}
 
 	@Test
 	public void testGetFileBound() {
-		assertEquals("Test 1: fileBound should be 0", 0, testField.getFileBound());
-		assertEquals("Test 2: fileBound should be 0", 0, testField2.getFileBound());
-		assertEquals("Test 3: fileBound should be 0", 0, testField3.getFileBound());
-		assertEquals("Test 4: fileBound should be 0", 0, testField4.getFileBound());
+		assertEquals("Test: fileBound should be 0", 0, testField.getFileBound());
 	}
 
 	@Test

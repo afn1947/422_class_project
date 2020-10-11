@@ -30,6 +30,7 @@ Owner:
 
 //ClassName
 //List each method and then what is being tested.
+// Starter
 EdgeConnector:
 - Get End Point 1
 	- Does the first endpoint exist?
@@ -80,20 +81,70 @@ EdgeConnector:
 	- Can I set this table?
 		- Return does not exist or throw an exception?
 
+// Avery
 EdgeConvertCreateDDL:
 
+// Mitchell
 EdgeConvertFileParser:
 
+// Anna
 EdgeField:
 
+// Rachael
 EdgeTable:
--
--
--
--
--
--
--
--
--
--
+- Get numFigure1
+	- Does numFigure1 exist?
+	- Can I get numFigure1?
+		- Return does not exist or throw an exception?
+- Get numFigure2
+	- Does numFigure2 exist?
+	- Can I get numFigure2?
+		- Return does not exist or throw an exception?
+- Get numName1
+	- Does numName1 exist?
+	- Can I get numName1?
+		- Return does not exist or throw an exception?
+- Get numName2
+	- Does numName2 exist?
+	- Can I get numName2?
+		- Return does not exist or throw an exception?
+- addRelatedTable
+	- Can I add a related table? 
+	- Did the related table add?
+		- Return does not exist or throw an exception?
+- Get relatedTablesArray
+	- Can I get a related table array? 
+	- Does the related table array exist?
+		- Return does not exist or throw an exception?
+- Get relatedFieldsArray
+	- Can I get a related field array?
+	- Does the related field array exist?
+		- Return does not exist or throw an exception?
+- Set relatedField
+	- Can I set the related field?
+	- Was the related field updated or set?
+		- Return does not exist or throw an exception?
+- Get nativeFieldsArray
+	- Can I get the native fields array?
+	- Does the native fileds array exist?
+		- Return does not exist or throw an exception?
+- addNativeField
+	- Can I add more native fields to the array?
+	- Does the array exist?
+		- Return does not exist or throw an exception?
+- moveFieldUp
+	- Can I move a field up?
+	- Does the field exist?
+		- Return does not exist or throw an exception?
+- moveFieldDown
+	- Can I move a field down?
+	- Does the field exist?
+		- Return does not exist or throw an exception?
+- makeArrays
+	- Can I make arrays?
+	- Does the array exist?
+		- Return does not exist or throw an exception?
+- toString
+	- Can I use the toString on an array?
+	- Does the string match and exist?
+		- Return does not exist or throw an exception?
