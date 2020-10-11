@@ -27,6 +27,7 @@ public class EdgeConvertFileParser {
    private int endPoint1, endPoint2;
    private int numLine;
    private String endStyle1, endStyle2;
+	 public boolean connectorsResolved = false;
    public static final String EDGE_ID = "EDGE Diagram File"; //first line of .edg files should be this
    public static final String SAVE_ID = "EdgeConvert Save File"; //first line of save files should be this
    public static final String DELIM = "|";
@@ -193,6 +194,7 @@ public class EdgeConvertFileParser {
                tables[table2Index].addNativeField(fields[fieldIndex].getNumFigure()); //add to the appropriate table's field list
                fields[fieldIndex].setTableID(tables[table2Index].getNumFigure()); //tell the field what table it belongs to
             }
+						connectorsResolved = true;
          } else if (fieldIndex >=0) { //field has already been assigned to a table
             JOptionPane.showMessageDialog(null, "The attribute " + fields[fieldIndex].getName() + " is connected to multiple tables.\nPlease resolve this and try again.");
             EdgeConvertGUI.setReadSuccess(false); //this tells GUI not to populate JList components
@@ -291,7 +293,7 @@ public class EdgeConvertFileParser {
       return fields;
    }
    
-   public void openFile(File inputFile) {
+   public boolean openFile(File inputFile) {
       try {
          logger.info("Attempting to open file...");
          fr = new FileReader(inputFile);
@@ -306,14 +308,17 @@ public class EdgeConvertFileParser {
             this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type
             logger.info("Attempting to resolve connectors...");
             this.resolveConnectors(); //Identify nature of Connector endpoints
+						return true;
          } else {
             if (currentLine.startsWith(SAVE_ID)) { //the file chosen is a Save file created by this application
                this.parseSaveFile(); //parse the file
                br.close();
                this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type
+							 return true;
             } else { //the file chosen is something else
                JOptionPane.showMessageDialog(null, "Unrecognized file format");
 							 logger.debug("The file was an unrecognized format");
+							 return false;
             }
          }
       } // try
@@ -321,11 +326,13 @@ public class EdgeConvertFileParser {
          logger.error("Cannot find \"" + inputFile.getName() + "\".");
          System.out.println("Cannot find \"" + inputFile.getName() + "\".");
          System.exit(0);
+				 return false;
       } // catch FileNotFoundException
       catch (IOException ioe) {
          logger.error("There was an IO Exception.");
          System.out.println(ioe);
          System.exit(0);
+				 return false;
       } // catch IOException
    } // openFile()
 } // EdgeConvertFileHandler

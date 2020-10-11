@@ -1,0 +1,99 @@
+This is the example he just gave for a documented test plan:
+SavingsAccount: //ClassName
+//List each method and then what is being tested.
+- no-arg constructor
+- Regular constructor
+  - what if interest rate is negative?
+  - what if any arguments are null?
+  - if I pass a name, does correct name get stored?
+    - same for balance, interest rate, owner
+- monthEnd
+  - is calculation correct?
+  - what if interest rate is zero?
+  - what if interest rate is negative?
+- toString
+  - Does it return a string?
+  - Does it display correct interest rate?
+Account:
+- Withdraw
+  - does withdraw work?
+  - does correct item show up in register?
+  - Exception thrown if we w/d below zero?
+- Deposit
+  - Does deposit work?
+  - What if deposit is negative?
+    - Do nothing or throw exception?
+Owner:
+- Constructor:
+  - Q: is it OK to have null/emtpy string for name?
+  - Does name get set correctly?
+
+//ClassName
+//List each method and then what is being tested.
+EdgeConnector:
+- Get End Point 1
+	- Does the first endpoint exist?
+	- What if the first endpoint does not exist?
+		- Return nothing or throw an exception?
+- Get End Point 2
+	- Does the second endpoint exist?
+	- What if the second endpoint does not exist?
+		- Return nothing or throw an exception?
+- Get End Style 1
+	- Does an end style exist?
+	- Can I get this end style?
+		- Return nothing or throw an exception?
+- Get End Style 2
+	- Does an end style exist?
+	- Can I get this end style?
+		- Return nothing or throw an exception?
+- Get IsEP1Field
+	- Does this field exist?
+	- Can I get this field?
+		- Return nothing or throw an exception?
+- Get IsEP2Field
+	- Does this field exist?
+	- Can I get this field?
+		- Return nothing or throw an exception?
+- Get IsEP1Table
+	- Does this table exist?
+	- Can I get this table?
+		- Return nothing or throw an exception?
+- Get IsEP2Table
+	- Does this table exist?
+	- Can I get this table?
+		- Return nothing or throw an exception?
+- Set IsEP1Field
+	- Does this field exist?
+	- Can I set this field?
+		- Return does not exist or throw an exception?
+- Set IsEP2Field
+	- Does this field exist?
+	- Can I set this field?
+		- Return does not exist or throw an exception?
+- Set IsEP1Table
+	- Does this table exist?
+	- Can I set this table?
+		- Return does not exist or throw an exception?
+- Set IsEP2Table
+	- Does this table exist?
+	- Can I set this table?
+		- Return does not exist or throw an exception?
+
+EdgeConvertCreateDDL:
+
+EdgeConvertFileParser:
+
+EdgeField:
+
+EdgeTable:
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
