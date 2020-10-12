@@ -113,8 +113,8 @@ toString
 	- Does it return the expected output?
 
 
-// Rachael Simmons
-EdgeTable:
+// Rachael Simmonds
+----- EdgeTable -----
 - Get numFigure1
 	- Does numFigure1 exist?
 	- Can I get numFigure1?
