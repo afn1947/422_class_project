@@ -50,7 +50,18 @@ EdgeConnector:
 		- Return does not exist or throw an exception?
 
 // Avery
-EdgeConvertCreateDDL:
+---- EdgeConvertCreateDDL ----
+Initialize
+    - throws error if initialized with nulls
+GetTable
+    - does it return the correct table
+    - does get table with negative index error
+    - does get table with out of range index error
+GetField
+    - does it return the correct field
+     - does get field with negative index error
+     - does get field with out of range index error
+
 
 // Mitchell Sweet
 EdgeConvertFileParser:
@@ -58,7 +69,7 @@ EdgeConvertFileParser:
 // Anna Jacobsen
 ----- EdgeField -----
 Parameterized Constructor 
-	- Can you intialize testName to an empty string?
+	- Can you initialize testName to an empty string?
 	- Can you initialize numFigure to zero or a negative number?
 getNumFigure 
 	- Is the correct numFigure value returned?

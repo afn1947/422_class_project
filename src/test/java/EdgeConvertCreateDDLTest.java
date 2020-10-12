@@ -20,7 +20,7 @@ public class EdgeConvertCreateDDLTest {
 
     @Test(expected = Exception.class)
     public void testInitialize() {
-        String expected = "";
+        String expected = "Error Expected";
         assertEquals(new CreateDDLMySQL(null,null),expected);
     }
 
@@ -30,8 +30,22 @@ public class EdgeConvertCreateDDLTest {
         assertEquals("Table should be TEST1", "TEST1", testObj.getTable(1).getName());
     }
 
+    @Test(expected = AssertionError.class)
+    public void testGetTableError() {
+        String expected = "Assertion Error Expected";
+        assertEquals(testObj.getTable(-10),expected);
+        assertEquals(testObj.getTable(10),expected);
+    }
+
     @Test
     public void testGetField() {
         assertEquals("Field should be TEST_FIELD1", "TEST_FIELD1", testObj.getField(1).getName());
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testGetFieldError() {
+        String expected = "Assertion Error Expected";
+        assertEquals(testObj.getField(-10),expected);
+        assertEquals(testObj.getField(10),expected);
     }
 }
