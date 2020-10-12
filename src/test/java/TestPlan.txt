@@ -84,13 +84,68 @@ EdgeConnector:
 // Avery
 EdgeConvertCreateDDL:
 
-// Mitchell
+// Mitchell Sweet
 EdgeConvertFileParser:
 
-// Anna
-EdgeField:
+// Anna Jacobsen
+----- EdgeField -----
+Parameterized Constructor 
+	- Can you intialize testName to an empty string?
+	- Can you initialize numFigure to zero or a negative number?
+getNumFigure 
+	- Is the correct numFigure value returned?
+getName
+	- Is the correct table name returned/
+	- For a table with an empty string for a name, does it return an empty String?
+getTableID
+	- Is the correct table ID returned?
+setTableID
+	- Can you set the table ID? 
+	- Can you set the table ID to zero?
+	- Can you set the table ID to a negative number?
+getTableBound
+	- Is the correct tableBound value returned?
+setTableBound
+	- Can you set the table boundary? 
+	- Can you set the table boundary to zero?
+	- Can you set the table boundary to a negative number?
+getFieldBound
+	- Is the correct field boundary returned?
+setFieldBound
+	- Can you set the field boundary? 
+	- Can you set the field boundary to zero?
+	- Can you set the field boundary to a negative number?
+getDisallowNull
+	- Is the correct boolean value returned for disallowNull?
+setDisallowNull
+	- Can you set the disallowNull property?
+getIsPrimaryKey
+	- Is the correct boolean value returned for isPrimaryKey?
+setIsPrimaryKey
+	- Can you set the isPrimaryKey property?
+getDefaultValue
+	- Is the correct default value returned?
+setDefaultValue
+	- Can you set the default value of the field to a String?
+	- Can you set the default value of the field to an empty String?
+getVarcharValue
+	- Is the expected varchar value returned?
+setVarcharValue
+	- Can you set the varCharValue? 
+	- Can you set the varCharValue to zero?
+	- Can you set the varCharValue to a negative number?
+getDataType
+	- Is the expected data type returned?
+setDataType
+	- Can you set the dataType? 
+	- Can you set the dataType to a negative number?
+	- Can you set the dataType to a number greater than the length of 	  the strDataType array? (3)
+toString
+	- Does the toString method return an existing value?
+	- Does it return the expected output?
 
-// Rachael
+
+// Rachael Simmons
 EdgeTable:
 - Get numFigure1
 	- Does numFigure1 exist?

@@ -28,6 +28,27 @@ public class EdgeFieldTest {
 	}
 
 	/**
+	* Does the toString method return the expected output?
+	*/
+	@Test
+	public void testToString() {
+		/*numFigure + EdgeConvertFileParser.DELIM +
+      name + EdgeConvertFileParser.DELIM +
+      tableID + EdgeConvertFileParser.DELIM +
+      tableBound + EdgeConvertFileParser.DELIM +
+      fieldBound + EdgeConvertFileParser.DELIM +
+      dataType + EdgeConvertFileParser.DELIM +
+      varcharValue + EdgeConvertFileParser.DELIM +
+      isPrimaryKey + EdgeConvertFileParser.DELIM +
+      disallowNull + EdgeConvertFileParser.DELIM +
+      defaultValue;*/
+
+			assertEquals("Test: toString...",
+			"2|testName|0|0|0|0|1|false|false|\"\"",
+			testField.toString());
+	}
+
+	/**
 	* Is the numFigure value returned correct? 
 	*/
 	@Test
@@ -97,20 +118,20 @@ public class EdgeFieldTest {
 	}
 
 	/**
-	* Is the correct file boundary returned?
+	* Is the correct field boundary returned?
 	*/
 	@Test
-	public void testGetFileBound() {
-		assertEquals("Test: fileBound should be 0", 0, testField.getFileBound());
+	public void testGetFieldBound() {
+		assertEquals("Test: fileBound should be 0", 0, testField.getFieldBound());
 	}
 
 	/**
-	* Can you set the file boundary? 
-	* Can you set the file boundary to zero?
-	* Can you set the file boundary to a negative number?
+	* Can you set the field boundary? 
+	* Can you set the field boundary to zero?
+	* Can you set the field boundary to a negative number?
 	*/
 	@Test
-	public void testSetFileBound() {
+	public void testSetFieldBound() {
 		testField.setFieldBound(1);
 		assertEquals("Test 1: tableBound should be set to 1.",1,testField.getFieldBound());
 
@@ -225,13 +246,4 @@ public class EdgeFieldTest {
 		testField.setDataType(1000);
 		assertEquals("Test 3: dataType should not allow a value > 3. Attempted to set dataType to 1000.",1000,testField.getDataType());
 	}
-
-	/**
-	* Does the toString method return the expected output?
-	*/
-	@Test
-	public void testToString() {
-		
-	}
-
 }
