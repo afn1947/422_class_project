@@ -65,6 +65,26 @@ GetField
 
 // Mitchell Sweet
 EdgeConvertFileParser:
+Parameterized Constructor
+	- Initialize class with file 
+testParseEdgeFile
+	- Does the parse function throw an error? 
+testResolveConnector
+	- Are the connectors resolved properly? 
+testParseSaveFile
+	- Is an error thrown when trying to save 
+testMakeArrays
+	- Are the edge tables and edge fields arrays populated? 
+testIsTableDup
+	- Does the function detect when there is a duplicate table? 
+	- Does the function know that there isn't a duplicate table? 
+testGetEdgeTables
+	- Does the function return anything? 
+testGetEdgeFields
+	- Does the function return anything? 
+testOpenFile
+	- Does a file open successfully?
+
 
 // Anna Jacobsen
 ----- EdgeField -----
