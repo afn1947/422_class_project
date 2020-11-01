@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
+import java.awt.*;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -8,13 +9,14 @@ import org.apache.logging.log4j.LogManager;
 * Child of EdgeFileParser. Contains implementations for abstract methods declared in EdgeFileParser as well as methods
 * specific to edge files.
 */
-public class ParseEdgeFile extends EdgeFileParser {
+public class ParseEdgeFile extends FileParser {
 
-	private static final String FILE_ID ="EdgeConvert Save File";
+	private static final String FILE_ID = "EDGE Diagram File";
 	public boolean connectorsResolved = false;
+	private BufferedReader br;
 	
 	public ParseEdgeFile(File constructorFile){
-		inputFile = constructorFile;
+		super.inputFile = constructorFile;
 	}
 
 	/** Implements the openFile method from the abstract class. */
@@ -22,7 +24,7 @@ public class ParseEdgeFile extends EdgeFileParser {
 			try {
          logger.info("Attempting to open file...");
          FileReader fr = new FileReader(inputFile);
-         BufferedReader br = new BufferedReader(fr);
+         br = new BufferedReader(fr);
          //test for what kind of file we have
          String currentLine = br.readLine().trim();
          if (currentLine.startsWith(FILE_ID)) { //the file chosen is an Edge Diagrammer file
@@ -60,8 +62,8 @@ public class ParseEdgeFile extends EdgeFileParser {
 		 String currentLine;
 		 String style;
 		 int numConnector, numFigure;
-		 boolean isEntity, isAttribute, isUnderlined = false;
-
+		 boolean isEntity = false, isAttribute = false, isUnderlined = false;
+		try{
       while ((currentLine = br.readLine()) != null) {
 				try{
 					currentLine = currentLine.trim();
@@ -74,7 +76,7 @@ public class ParseEdgeFile extends EdgeFileParser {
             } else {
                style = currentLine.substring(currentLine.indexOf("\"") + 1, currentLine.lastIndexOf("\"")); //get the Style parameter
                if (style.startsWith("Relation")) { //presence of Relations implies lack of normalization
-                  JOptionPane.showMessageDialog(null, "The Edge Diagrammer file\n" + parseFile + "\ncontains relations.  Please resolve them and try again.");
+                  JOptionPane.showMessageDialog(null, "The Edge Diagrammer file\n" + super.inputFile + "\ncontains relations.  Please resolve them and try again.");
                   EdgeConvertGUI.setReadSuccess(false);
                   break;
                } 
@@ -115,7 +117,7 @@ public class ParseEdgeFile extends EdgeFileParser {
                   alTables.add(new EdgeTable(numFigure + DELIM + text));
                }
                if (isAttribute) { //create a new EdgeField object and add it to the alFields ArrayList
-                  tempField = new EdgeField(numFigure + DELIM + text);
+                  EdgeField tempField = new EdgeField(numFigure + DELIM + text);
                   tempField.setIsPrimaryKey(isUnderlined);
                   alFields.add(tempField);
                }
@@ -153,6 +155,9 @@ public class ParseEdgeFile extends EdgeFileParser {
 					ioe.printStackTrace();
 				}// End of try/catch  
       } // while()
+		}catch(IOException ioe){
+			ioe.printStackTrace();
+		}
    } // parseFile()
 
 	public void resolveConnectors() { //Identify nature of Connector endpoints ------- MOVING TO ParseEdgeFile ------
@@ -184,9 +189,9 @@ public class ParseEdgeFile extends EdgeFileParser {
          }
          
          if (connectors[cIndex].getIsEP1Field() && connectors[cIndex].getIsEP2Field()) { //both endpoints are fields, implies lack of normalization
-						logger.error("The Edge Diagrammer file\n" + parseFile + "\ncontains composite attributes. Please resolve them and try again.");
+						logger.error("The Edge Diagrammer file\n" + super.inputFile + "\ncontains composite attributes. Please resolve them and try again.");
 
-            JOptionPane.showMessageDialog(null, "The Edge Diagrammer file\n" + parseFile + "\ncontains composite attributes. Please resolve them and try again.");
+            JOptionPane.showMessageDialog(null, "The Edge Diagrammer file\n" + super.inputFile + "\ncontains composite attributes. Please resolve them and try again.");
             EdgeConvertGUI.setReadSuccess(false); //this tells GUI not to populate JList components
             break; //stop processing list of Connectors
          }

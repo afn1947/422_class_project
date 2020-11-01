@@ -5,21 +5,24 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 // Milestone 4 Refactored Code
-public class ParseSaveFile extends EdgeFileParser {
+public class ParseSaveFile extends FileParser {
 
-	private static final String FILE_ID = "EdgeConvert Save File";
+	public static final String FILE_ID = "EdgeConvert Save File";
+	private BufferedReader br;
 	
-	public ParseSaveFile(){}
+	public ParseSaveFile(File constructorFile){
+		super.inputFile = constructorFile;
+	}
 
 	public boolean openFile(File inputFile) {
       try {
          logger.info("Attempting to open file...");
          FileReader fr = new FileReader(inputFile);
-         BufferedReader br = new BufferedReader(fr);
+         br = new BufferedReader(fr);
          //test for what kind of file we have
          String currentLine = br.readLine().trim();
         if (currentLine.startsWith(FILE_ID)) { //the file chosen is a Save file created by this application
-            this.parseSaveFile(); //parse the file
+            this.parseFile(); //parse the file
             br.close();
             this.makeArrays(); //convert ArrayList objects into arrays of the appropriate Class type
 						return true;
@@ -45,9 +48,9 @@ public class ParseSaveFile extends EdgeFileParser {
 
 	public void parseFile() { //this method is unclear and confusing in places
 				StringTokenizer stTables, stNatFields, stRelFields, stNatRelFields, stField;
-				String fieldName;
+				String fieldName = "";
 				EdgeTable tempTable;
-				int numFields, numTables, numFigure;
+				int numFields = 0, numTables = 0, numFigure = 0;
 				try{
 						String currentLine = br.readLine();
 						currentLine = br.readLine(); //this should be "Table: "

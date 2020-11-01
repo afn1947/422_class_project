@@ -10,7 +10,5 @@ public class EdgeConvertCreateDDLTest {
 	public void setUp() throws Exception {
 		testObj = new EdgeConvertCreateDDLTest("EdgeConvertFileParserTest");
 	}
-
-	
 	
 }

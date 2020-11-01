@@ -10,7 +10,7 @@ import java.util.*;
 
 public class CreateDDLMySQL extends EdgeConvertCreateDDL {
    //Get a Logger object to log messages.
-   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+   private static final Logger logger = LogManager.getLogger(FileParser.class);
 
    protected String databaseName;
    //this array is for determining how MySQL refers to datatypes

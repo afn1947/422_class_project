@@ -4,7 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class EdgeTableTest {
-	private EdgeTable testObjTable;
+	private EdgeTable testObjTable1;
+	private EdgeTable testObjTable2;
 
 	// Runs each time before the tests 
 	@Before
@@ -15,7 +16,7 @@ public class EdgeTableTest {
 
 	@Test
 	public void testGetNumFigure1() {
-      assertEquals("NumFigure was initialized to 2",2,testObjTable.getNumFigure());
+      assertEquals("NumFigure was initialized to 2",2,testObjTable1.getNumFigure());
   } // End of testGetNumFigure1
 
 	@Test

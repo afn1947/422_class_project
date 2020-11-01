@@ -5,7 +5,7 @@ import java.util.*;
 
 public class EdgeTable {
    //Get a Logger object to log messages.
-   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+   private static final Logger logger = LogManager.getLogger(FileParser.class);
 
    private int numFigure;
    private String name;
@@ -14,7 +14,7 @@ public class EdgeTable {
    
    public EdgeTable(String inputString) {
       logger.info("Creating new edge table with input: " + inputString);
-      StringTokenizer st = new StringTokenizer(inputString, EdgeConvertFileParser.DELIM);
+      StringTokenizer st = new StringTokenizer(inputString, FileParser.DELIM);
       numFigure = Integer.parseInt(st.nextToken());
       name = st.nextToken();
       alRelatedTables = new ArrayList();
@@ -106,21 +106,21 @@ public class EdgeTable {
       for (int i = 0; i < nativeFields.length; i++) {
          sb.append(nativeFields[i]);
          if (i < (nativeFields.length - 1)){
-            sb.append(EdgeConvertFileParser.DELIM);
+            sb.append(FileParser.DELIM);
          }
       }
       sb.append("\r\nRelatedTables: ");
       for (int i = 0; i < relatedTables.length; i++) {
          sb.append(relatedTables[i]);
          if (i < (relatedTables.length - 1)){
-            sb.append(EdgeConvertFileParser.DELIM);
+            sb.append(FileParser.DELIM);
          }
       }
       sb.append("\r\nRelatedFields: ");
       for (int i = 0; i < relatedFields.length; i++) {
          sb.append(relatedFields[i]);
          if (i < (relatedFields.length - 1)){
-            sb.append(EdgeConvertFileParser.DELIM);
+            sb.append(FileParser.DELIM);
          }
       }
       sb.append("\r\n}\r\n");
