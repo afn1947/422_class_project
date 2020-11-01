@@ -63,6 +63,7 @@ public abstract class EdgeConvertCreateDDL {
    }
    
    protected EdgeField getField(int numFigure) {
+      Integer i = fields.length;
       for (int fIndex = 0; fIndex < fields.length; fIndex++) {
          if (numFigure == fields[fIndex].getNumFigure()) {
             logger.info("Returning field " + fields[fIndex].toString());
@@ -79,6 +80,6 @@ public abstract class EdgeConvertCreateDDL {
    
    public abstract String getSQLString();
    
-   public abstract void createDDL();
+   public abstract String createDDL();
    
 }//EdgeConvertCreateDDL

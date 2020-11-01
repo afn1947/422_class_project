@@ -10,7 +10,10 @@ public class EdgeTable {
    private int numFigure;
    private String name;
    private ArrayList alRelatedTables, alNativeFields;
-   private int[] relatedTables, relatedFields, nativeFields;
+   //TODO Need to fix this initialization only done for testing
+   private int[] relatedFields = new int[1];
+   private int[] relatedTables = new int[1];
+   private int[] nativeFields = new int[1];
    
    public EdgeTable(String inputString) {
       logger.info("Creating new edge table with input: " + inputString);

@@ -19,6 +19,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
 
    public CreateDDLMySQL(EdgeTable[] inputTables, EdgeField[] inputFields) {
       super(inputTables, inputFields);
+      databaseName = "MySQLDB"; //Default name
       sb = new StringBuffer();
    } //CreateDDLMySQL(EdgeTable[], EdgeField[])
    
@@ -26,7 +27,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
       
    }
    
-   public void createDDL() {
+   public String createDDL() {
       logger.info("Generating DDL...");
       EdgeConvertGUI.setReadSuccess(true);
       databaseName = generateDatabaseName();
@@ -105,6 +106,7 @@ public class CreateDDLMySQL extends EdgeConvertCreateDDL {
          }
       }
       logger.info("DDL generation finished.");
+      return sb.toString();
    }
 
    protected int convertStrBooleanToInt(String input) { //MySQL uses '1' and '0' for boolean types
