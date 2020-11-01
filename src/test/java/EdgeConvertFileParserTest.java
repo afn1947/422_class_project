@@ -4,11 +4,14 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.File;
 
-import org.slf4j.LoggerFactory;
+/*import org.slf4j.LoggerFactory;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
-import ch.qos.logback.core.read.ListAppender;
+import ch.qos.logback.core.read.ListAppender;*/
+
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class EdgeConvertFileParserTest {
 	EdgeConvertFileParser testObj;
@@ -38,7 +41,7 @@ public class EdgeConvertFileParserTest {
 	@Test
 	public void testMakeArrays(){
 		testObj.makeArrays();
-		assertNotNull("Tables should not be null",testObj.getEdgeTables);
+		assertNotNull("Tables should not be null",testObj.getEdgeTables());
 		assertNotNull("Fields should not be null",testObj.getEdgeFields());
 	}
 

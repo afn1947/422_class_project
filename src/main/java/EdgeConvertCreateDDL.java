@@ -10,7 +10,7 @@ import java.util.*;
 
 public abstract class EdgeConvertCreateDDL {
    //Get a Logger object to log messages.
-   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+   private static final Logger logger = LogManager.getLogger(FileParser.class);
 
    static String[] products = {"MySQL"};
    protected EdgeTable[] tables; //master copy of EdgeTable objects

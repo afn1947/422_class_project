@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class EdgeConnector {
    //Get a Logger object to log messages.
-   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+   private static final Logger logger = LogManager.getLogger(FileParser.class);
 
    private int numConnector, endPoint1, endPoint2;
    private String endStyle1, endStyle2;
@@ -13,7 +13,7 @@ public class EdgeConnector {
       
    public EdgeConnector(String inputString) {
       logger.info("Creating Edge Connector with input: " + inputString);
-      StringTokenizer st = new StringTokenizer(inputString, EdgeConvertFileParser.DELIM);
+      StringTokenizer st = new StringTokenizer(inputString, FileParser.DELIM);
       numConnector = Integer.parseInt(st.nextToken());
       endPoint1 = Integer.parseInt(st.nextToken());
       endPoint2 = Integer.parseInt(st.nextToken());

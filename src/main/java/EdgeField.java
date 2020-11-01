@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class EdgeField {
    //Get a Logger object to log messages.
-   private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+   private static final Logger logger = LogManager.getLogger(FileParser.class);
 
    private int numFigure, tableID, tableBound, fieldBound, dataType, varcharValue;
    private String name, defaultValue;
@@ -15,7 +15,7 @@ public class EdgeField {
    
    public EdgeField(String inputString) {
       logger.info("Creating new edge field with input: " + inputString);
-      StringTokenizer st = new StringTokenizer(inputString, EdgeConvertFileParser.DELIM);
+      StringTokenizer st = new StringTokenizer(inputString, FileParser.DELIM);
       numFigure = Integer.parseInt(st.nextToken());
       name = st.nextToken();
       tableID = 0;
@@ -108,15 +108,15 @@ public class EdgeField {
    }
    
    public String toString() {
-      return numFigure + EdgeConvertFileParser.DELIM +
-      name + EdgeConvertFileParser.DELIM +
-      tableID + EdgeConvertFileParser.DELIM +
-      tableBound + EdgeConvertFileParser.DELIM +
-      fieldBound + EdgeConvertFileParser.DELIM +
-      dataType + EdgeConvertFileParser.DELIM +
-      varcharValue + EdgeConvertFileParser.DELIM +
-      isPrimaryKey + EdgeConvertFileParser.DELIM +
-      disallowNull + EdgeConvertFileParser.DELIM +
+      return numFigure + FileParser.DELIM +
+      name + FileParser.DELIM +
+      tableID + FileParser.DELIM +
+      tableBound + FileParser.DELIM +
+      fieldBound + FileParser.DELIM +
+      dataType + FileParser.DELIM +
+      varcharValue + FileParser.DELIM +
+      isPrimaryKey + FileParser.DELIM +
+      disallowNull + FileParser.DELIM +
       defaultValue;
    }
 }

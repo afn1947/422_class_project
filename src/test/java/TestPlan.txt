@@ -85,7 +85,6 @@ testGetEdgeFields
 testOpenFile
 	- Does a file open successfully?
 
-
 // Anna Jacobsen
 ----- EdgeField -----
 Parameterized Constructor 

@@ -1,17 +1,23 @@
-EdgeConnector.java
- EdgeConnector
 ExampleFileFilter.java
  ExampleFileFilter
-EdgeConvertFileParser.java
- EdgeConvertFileParser
-CreateDDLMySQL.java
- CreateDDLMySQL
+EdgeConnector.java
+ EdgeConnector
+FileParser.java
+ FileParser
 EdgeField.java
  EdgeField
+CreateDDLMySQL.java
+ CreateDDLMySQL
+ParseEdgeFile.java
+ ParseEdgeFile
 EdgeConvertCreateDDL.java
  EdgeConvertCreateDDL
 EdgeTable.java
  EdgeTable
+ParseSaveFile.java
+ ParseSaveFile
+RunEdgeConvert.java
+ RunEdgeConvert
 EdgeConvertGUI.java
  EdgeConvertGUI
  EdgeConvertGUI$1
@@ -33,5 +39,3 @@ EdgeConvertGUI.java
  EdgeConvertGUI$EdgeMenuListener
  EdgeConvertGUI$EdgeRadioButtonListener
  EdgeConvertGUI$EdgeWindowListener
-RunEdgeConvert.java
- RunEdgeConvert

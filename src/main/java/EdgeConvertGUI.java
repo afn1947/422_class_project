@@ -14,7 +14,7 @@ import java.lang.reflect.*;
 
 public class EdgeConvertGUI {
     //Get a Logger object to log messages.
-    private static final Logger logger = LogManager.getLogger(EdgeConvertFileParser.class);
+    private static final Logger logger = LogManager.getLogger(FileParser.class);
 
 
     public static final int HORIZ_SIZE = 635;
@@ -34,7 +34,14 @@ public class EdgeConvertGUI {
     EdgeRadioButtonListener radioListener;
     EdgeWindowListener edgeWindowListener;
     CreateDDLButtonListener createDDLListener;
-    private EdgeConvertFileParser ecfp;
+
+		/* This is where we are changing EdgeConvertFileParser to the classes we created that extend FileParser*/
+
+    //private EdgeConvertFileParser ecfp;
+		private FileParser ecfp;
+		private ParseEdgeFile pef;
+		private ParseSaveFile psf;
+
     private EdgeConvertCreateDDL eccd;
     private static PrintWriter pw;
     private EdgeTable[] tables; //master copy of EdgeTable objects
@@ -910,7 +917,7 @@ public class EdgeConvertGUI {
             try {
                 pw = new PrintWriter(new BufferedWriter(new FileWriter(saveFile, false)));
                 //write the identification line
-                pw.println(EdgeConvertFileParser.SAVE_ID);
+                pw.println(ParseSaveFile.FILE_ID);
                 //write the tables
                 pw.println("#Tables#");
                 for (int i = 0; i < tables.length; i++) {
@@ -1217,7 +1224,20 @@ public class EdgeConvertGUI {
                 returnVal = jfcEdge.showOpenDialog(null);
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     parseFile = jfcEdge.getSelectedFile();
-                    ecfp = new EdgeConvertFileParser(parseFile);
+
+										//What kind of parser is needed?
+										String parserType = FileParser.getParserType(parseFile);
+
+										if(parserType.equals("edge")){
+											ecfp = new ParseEdgeFile(parseFile);
+										}
+										else if(parserType.equals("save")){
+											ecfp = new ParseSaveFile(parseFile);
+										}
+										else {
+											logger.info(parserType);
+										}
+
                     tables = ecfp.getEdgeTables();
                     for (int i = 0; i < tables.length; i++) {
                         tables[i].makeArrays();
@@ -1256,7 +1276,20 @@ public class EdgeConvertGUI {
                 returnVal = jfcEdge.showOpenDialog(null);
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     saveFile = jfcEdge.getSelectedFile();
-                    ecfp = new EdgeConvertFileParser(saveFile);
+
+										//What kind of parser is needed?
+										String parserType = FileParser.getParserType(parseFile);
+
+										if(parserType.equals("edge")){
+											ecfp = new ParseEdgeFile(parseFile);
+										}
+										else if(parserType.equals("save")){
+											ecfp = new ParseSaveFile(parseFile);
+										}
+										else {
+											//Some fail condition -- The file is neither a save or edge file.
+										}
+
                     tables = ecfp.getEdgeTables();
                     fields = ecfp.getEdgeFields();
                     ecfp = null;
