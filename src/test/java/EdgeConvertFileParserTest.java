@@ -14,57 +14,48 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 public class EdgeConvertFileParserTest {
-	EdgeConvertFileParser testObj;
+	ParseSaveFile saveFileTestObj;
+	ParseEdgeFile edgeFileTestObj;
 
 	@Before
 	public void setUp() throws Exception {
 		File file = new File("Courses.edg");
-		testObj = new EdgeConvertFileParserTest(file);
-	}
-
-	@Test
-	public void testParseEdgeFile(){
-		assertDoesNotThrow​("Error should not be thrown",testObj.parseEdgeFile());
+		saveFileTestObj = new ParseSaveFile(file);
+		edgeFileTestObj = new ParseEdgeFile(file);
 	}
 
 	@Test
 	public void testResolveConnectors(){
-		testObj.resolveConnectors();
-		assertEquals("Connectors should be resolved",true,testObj.connectorsResolved);		
-	}
-
-	@Test
-	public void testParseSaveFile(){
-		assertDoesNotThrow​("Error should not be thrown",testObj.parseSaveFile());
+		edgeFileTestObj.resolveConnectors();
+		assertTrue("Connectors should be resolved", edgeFileTestObj.connectorsResolved);
 	}
 
 	@Test
 	public void testMakeArrays(){
-		testObj.makeArrays();
-		assertNotNull("Tables should not be null",testObj.getEdgeTables());
-		assertNotNull("Fields should not be null",testObj.getEdgeFields());
+		edgeFileTestObj.makeArrays();
+		assertNotNull("Tables should not be null",edgeFileTestObj.getEdgeTables());
+		assertNotNull("Fields should not be null",edgeFileTestObj.getEdgeFields());
 	}
 
 	@Test
 	public void testIsTableDup(){
-		assertEquals("isTableDup should be true",true,testObj.isTableDup("FigureButtons"));
-		assertEquals("isTableDup should be false",false,testObj.isTableDup("foo"));
+		assertTrue("isTableDup should be true", edgeFileTestObj.isTableDup("FigureButtons"));
+		assertFalse("isTableDup should be false", edgeFileTestObj.isTableDup("foo"));
 	}
 
 	@Test
 	public void testGetEdgeTables(){
-		assertNotNull("Tables should not be null",testObj.getEdgeTables);
+		assertNotNull("Tables should not be null",edgeFileTestObj.getEdgeTables());
 	}
 
 	@Test
 	public void testGetEdgeFields(){
-		assertNotNull("Fields should not be null",testObj.getEdgeFields());
+		assertNotNull("Fields should not be null",edgeFileTestObj.getEdgeFields());
 	}
 
 	@Test
 	public void testOpenFile(){
 		File file = new File("Courses.edg");
-		assertEquals("openFile should return true if file was opened.",true,testObj.openFile(file));
+		assertTrue("openFile should return true if file was opened.", saveFileTestObj.openFile(file));
 	}
-
 }

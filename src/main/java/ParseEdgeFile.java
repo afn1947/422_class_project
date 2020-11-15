@@ -229,7 +229,7 @@ public class ParseEdgeFile extends FileParser {
       } // connectors for() loop
    } // resolveConnectors()
 
-	 private boolean isTableDup(String testTableName) { //PUT IN parseEdgeFile
+	 public boolean isTableDup(String testTableName) { //PUT IN parseEdgeFile
       for (int i = 0; i < alTables.size(); i++) {
          EdgeTable tempTable = (EdgeTable)alTables.get(i);
          if (tempTable.getName().equals(testTableName)) {
