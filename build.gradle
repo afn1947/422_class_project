@@ -36,4 +36,5 @@ jar {
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
+	archiveName 'class_project.jar'
 }
